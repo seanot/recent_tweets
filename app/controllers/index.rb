@@ -6,7 +6,8 @@ end
 get '/:handle' do
   # if User.find_by(username: params[:handle])
   if @user = User.find_by_username(params[:handle])
-    if Time.now - @user.tweets.first.created_at > 15000
+    if Time.now - @user.tweets.first.created_at > 900
+      @user.tweets.destroy_all
       tweets = Twitter.user_timeline(params[:handle],:count => 10, :include_rts => false)
       @tweets = []
       tweets.each { |tweet| @tweets << Tweet.create(user_id: @user.id, text: tweet.text, created_at: Time.now) }
@@ -14,7 +15,7 @@ get '/:handle' do
       @tweets = @user.tweets.limit(10)
     end
   else
-    @user = User.create(username: params[:username])
+    @user = User.create(username: params[:handle])
     tweets = Twitter.user_timeline(params[:handle],:count => 10, :include_rts => false)
     @tweets = []
     tweets.each { |tweet| @tweets << Tweet.create(user_id: @user.id, text: tweet.text, created_at: Time.now) }
