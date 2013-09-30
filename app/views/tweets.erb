@@ -1,0 +1,11 @@
+
+
+
+The Most Recent Tweets from Twitter User:
+
+<%= @user %>
+
+<h2>Tweets</h2>
+<% @tweets.each do |tweet| %>
+  <p><%= tweet.text %></p>
+<% end %>

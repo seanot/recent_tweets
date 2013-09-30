@@ -14,6 +14,7 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
+gem 'twitter'
 
 gem 'shotgun'
 
