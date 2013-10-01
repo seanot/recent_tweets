@@ -16,6 +16,7 @@ require 'active_record'
 require 'logger'
 
 require 'twitter'
+require 'pry'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

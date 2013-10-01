@@ -15,6 +15,7 @@ gem 'activerecord'
 
 gem 'rake'
 gem 'twitter'
+gem 'pry'
 
 gem 'shotgun'
 
